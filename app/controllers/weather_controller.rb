@@ -20,8 +20,9 @@ class WeatherController < ApplicationController
         current_date = Date.today
         
         next_seven_days = data[0..6].map do |day|
+        
           {
-            date: day['datetime'],
+            days: Time.parse(day['datetime']).strftime('%A'),
             temperature: day['temp']
           }
         end
@@ -32,6 +33,7 @@ class WeatherController < ApplicationController
           temperature: current_temperature,
           date: current_date,
           next_seven_days: next_seven_days
+         
         }, status: 200
       else
         render json: response.parsed_response
