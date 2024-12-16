@@ -44,3 +44,6 @@ gem 'byebug'
 gem 'httparty'
 
 gem 'dotenv'
+
+gem 'rack-cors'
+
